@@ -3,13 +3,13 @@
 * [魔术宝石](README.md)
 * [功能演示](function.md)
 
-## 开始 <a href="start" id="start"></a>
+## 开始 <a href="#start" id="start"></a>
 
 * [购买](start/buy.md)
 * [绑定](start/bind.md)
 * [安装](start/install.md)
 
-## 入门 <a href="basic" id="basic"></a>
+## 入门 <a href="#basic" id="basic"></a>
 
 * [获取宝石](basic/get.md)
 * [使用宝石](basic/usegem/README.md)
@@ -19,9 +19,10 @@
 * [内置宝石](basic/freegem.md)
 * [内置技能](basic/freeskills.md)
 
-## 进阶 <a href="advance" id="advance"></a>
+## 进阶 <a href="#advance" id="advance"></a>
 
-* [宝石配置](advance/gems.md)
+* [插件用法](advance/gems.md)
+* [宝石配置](advance/bao-shi-pei-zhi.md)
 * [奖励大全](advance/rewards.md)
-* [技能大全](advance/skills.md)
+* [宝石技能](advance/skills.md)
 * [镶嵌台配置](advance/guis.md)
