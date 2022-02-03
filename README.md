@@ -151,4 +151,4 @@ YiMiner 荣誉出品&#x20;
   * 因此此处统计数据可能有较大偏差，有诡异的数据波动
   * _其实随便拉几个服就比这统计数据多了_
 
-![内测服务器统计](https://bstats.org/signatures/bukkit/MagicGem.svg)
+![使用服务器统计](https://bstats.org/signatures/bukkit/MagicGem.svg)
