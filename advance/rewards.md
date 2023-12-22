@@ -115,7 +115,18 @@ Rewards:
     * 此处附魔名称是游戏内置的附魔名，因此可能和您的想象完全不同
     * 请在游戏内用/mgem enchant查看正确的附魔名
     * 兼容EcoEnchants、GoldenEnchants附魔插件
-8.  **物品标志**
+8.  **附魔设置**
+
+    将装备附魔设置到一个指定的等级
+
+    ```
+     - EnchantSet{name=附魔名;level=要设置的等级}
+    ```
+
+    * 此处附魔名称是游戏内置的附魔名，因此可能和您的想象完全不同
+    * 与Enchant不同，这里不是提升多少级，而是设置为多少级
+    * 0级代表去除指定附魔
+9.  **物品标志**
 
     为装备添加某些原版标志
 
@@ -137,7 +148,7 @@ Rewards:
         | HIDE\_PLACED\_ON      | _隐藏装备可被放置的地方_ |
     * 注意HIDE\_DYE只在1.16.3以后的版本存在
     * 最后两个标志的作用作者也不清楚
-9.  **直接更改物品**
+10. **直接更改物品**
 
     将装备直接设置为指定的物品。物品通过材料构造
 
@@ -150,7 +161,7 @@ Rewards:
     * 例如 - ItemSet{Material=STONE;Glow=true}
     * 你还可以直接给宝石，格式是 - ItemSet{gem=宝石名;amount=数量}
     * 数量超过64个时会放到背包，若背包也放不下则会掉落在地上
-10. **拆卸宝石**
+11. **拆卸宝石**
 
     允许在打一颗宝石的时候尝试移除另一颗已经镶嵌的宝石，适用于宝石升级
 
@@ -161,14 +172,14 @@ Rewards:
     * 尝试从已经镶嵌的宝石中拆一颗下来
     * 如果undo取true（默认）则拆卸的时候会尝试清除该宝石的效果，清除失败则无法打宝石
     * 否则强行移除宝石，无视其效果
-11. **奖励表**
+12. **奖励表**
 
     用于将多个物品奖励拼成一行
 
     ```
      - List{reward=奖励1;reward=奖励2;...}
     ```
-12. **添加Lore**
+13. **添加Lore**
 
     给装备添加Lore，支持颜色代码&
 
@@ -191,7 +202,7 @@ Rewards:
         * 如果mode=line，插件会在lore的最后加入一行locator拼接lore
       * 设置为false时，如果mode为before，after，line之一且没找到locator，则无法打宝石
     * limit为添加次数上限，采用NBT记录，哪怕物品上添加的lore被修改了也能正确工作。
-13. **删除Lore**
+14. **删除Lore**
 
     删除物品上指定的Lore，支持颜色代码&
 
@@ -205,7 +216,7 @@ Rewards:
       * all（删除所有lore）
     * 插件会匹配包含指定lore（可以为空字符串""）的所有行，且不会忽略颜色
     * **拆卸时lore会被加回到第一行(first)或最后一行(其它情况)**
-14. **替换Lore**
+15. **替换Lore**
 
     将物品上指定的Lore替换为新的lore，支持颜色代码&
 
@@ -219,7 +230,14 @@ Rewards:
       * all只要匹配全部替换,
       * line替换locator所在的行内的lore
     * **注意locator只对行内替换有效，识别无视颜色**
-15. **Lore变量编辑**
+16. 替换多行Lore
+
+    将物品上多行lore替换为新的多行lore，支持颜色代码&
+
+    ```
+    - LoreMultiReplace{old=要替换的第一行;第二行;第三行;lore=要添加的新lore第一行;第二行;第三行;limit=替换限制次数}
+    ```
+17. **Lore变量编辑**
 
     编辑物品Lore数字
 
@@ -254,7 +272,7 @@ Rewards:
         - LoreVar{lore=物理伤害：;var=v+1;inv=v-1;format=%.0f - (&0第二个数字的特殊黑色标记符号)}
         - LoreVar{lore=(&0第二个数字的特殊黑色标记符号);var=v+1.2;inv=v-1.2;format=%.0f}
         ```
-16. **物品材料修改**
+18. **物品材料修改**
 
     修改物品或装备的材料，将一种物品变成另一种物品
 
@@ -264,7 +282,7 @@ Rewards:
 
     * material有别名m
     * **拆卸时不会还原材料**
-17. **MMOItems技能添加和强化**
+19. **MMOItems技能添加和强化**
 
     在服务端装有MMOItems前置时，使用这个奖励可以为物品添加MMOItems技能
 
@@ -275,7 +293,7 @@ Rewards:
     * 技能可在MMOItems wiki上寻找\[Ability List · Wiki · MythicCraft / MMOItems · GitLab]\(https://git.mythiccraft.io/mythiccraft/mmoitems/-/wikis/Ability List)
     * 属性名等价于wiki中的modifier，属性值是不做强化时的初始值
     * 强化、拆卸和限制公式写法和Lore变量编辑相同
-18. **MythicArtifact或MythicCrucible物品欺骗**
+20. **MythicArtifact或MythicCrucible物品欺骗**
 
     在服务端装有MythicArtifacts或MythicCrucible之一时，该奖励会改写物品特征，使其被MythicArtifacts或MythicCrucible识别，从而实现打宝石释放出MM技能。
 
@@ -286,7 +304,7 @@ Rewards:
     * 对于MythicCrucible，该奖励会添加一个名为MYTHIC\_TYPE的NBT标签
     * 对于MythicArtifacts，该奖励会修改武器的显示名和材料
     * 这个奖励拆卸时会移除MYTHIC\_TYPE标签或者移除显示名
-19. **物品改名**
+21. **物品改名**
 
     修改物品显示名，支持颜色代码&
 
@@ -296,7 +314,22 @@ Rewards:
 
     * name有别名n
     * **拆卸不会还原名字**
-20. **物品NBT浮点数修改**
+22. **物品名称数字修改**
+
+    修改物品显示名，支持颜色代码&
+
+    ```
+     - NameVar{name=已有的名字的一部分;var=强化公式;inv=拆卸公式;limit=限制公式;format= 格式;force=是否强制改名}
+    ```
+
+    * 同上，name有别名n，**拆卸不会还原名字**
+    *   用法和LoreVar一样，但是修改装备名称里面，已有的名字后面的第一个数字。暂不支持改第 二个数字
+
+        例如你有一把倚天剑+1，打了NameVar以后，可以把它变成倚天剑+2
+
+        * NameVar{name=&6倚天剑;var=v+1;inv=v-1;format=+%.0f}
+    * 和LoreVar一样，也支持罗马数字(改成+I，+II，+III，+IV......)
+23. **物品NBT浮点数修改**
 
     修改物品的NBT浮点数，适用于在装备上存入玩家看不见的数字，或者修改一些使用NBT作为属性的插件的属性（比如MMOItems）
 
@@ -306,7 +339,7 @@ Rewards:
 
     * name有别名key
     * var、inv、limit的写法与Lore变量编辑完全一致
-21. **物品NBT字符串修改**
+24. **物品NBT字符串修改**
 
     修改物品的NBT字符串
 
@@ -316,7 +349,7 @@ Rewards:
 
     * name有别名key
     * var如果不写就是删除整个字符串（此时奖励不可拆卸）
-22. **添加NBT技能**
+25. **添加NBT技能**
 
     为物品添加宝石技能库中的技能，采用NBT识别因此玩家不能在装备上看见
 
@@ -328,7 +361,7 @@ Rewards:
 
     * name有别名skill，s
     * **不能重复添加**
-23. **删除NBT技能**
+26. **删除NBT技能**
 
     删除物品上的某个宝石技能
 
@@ -339,7 +372,7 @@ Rewards:
     * name有别名skill，s
     * 技能名就是宝石技能库里面的条目
     * **装备上没有此技能则无法打宝石**
-24. **替换NBT技能**
+27. **替换NBT技能**
 
     将物品上的某个宝石技能替换为另一个技能
 
@@ -349,7 +382,7 @@ Rewards:
 
     * new有别名name，skill，s
     * **装备上没有旧技能则无法替换**
-25. **Lore技能转NBT技能**
+28. **Lore技能转NBT技能**
 
     将物品上的某个靠Lore触发的宝石技能转换为靠NBT触发，从而实现技能隐藏的效果
 
@@ -359,7 +392,7 @@ Rewards:
 
     * name有别名skill，s
     * **宝石上没有指定技能，或指定技能没有识别Lore时无法打宝石**
-26. **无法破坏**
+29. **无法破坏**
 
     使装备变得无法破坏
 
